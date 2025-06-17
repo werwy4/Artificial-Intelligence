@@ -1,0 +1,36 @@
+def print_board(q):
+    for r in range(8):
+        row = ['.'] * 8
+        row[q[r][1]] = 'Q'
+        print(' '.join(row))
+    print()
+
+def solve(q=[], r=0):
+    if r == 8:
+        print_board(q)
+        return
+    for c in range(8):
+        if all(r != qr and c != qc and abs(r - qr) != abs(c - qc) for qr, qc in q):
+            solve(q + [(r, c)], r + 1)
+
+solve()
+
+
+output:
+Q . . . . . . .
+. . . . Q . . .
+. . . . . . . Q
+. . . . . Q . .
+. . Q . . . . .
+. . . . . . Q .
+. Q . . . . . .
+. . . Q . . . .
+
+Q . . . . . . .
+. . . . . Q . .
+. . . . . . . Q
+. . Q . . . . .
+. . . . . . Q .
+. . . Q . . . .
+. Q . . . . . .
+. . . . Q . . .
