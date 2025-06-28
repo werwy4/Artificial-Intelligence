@@ -1,0 +1,41 @@
+from collections import deque
+
+g = {}
+for _ in range(int(input("No. of nodes: "))):
+    n = input("Node: ")
+    g[n] = input(f"Neighbors of {n}: ").split()
+
+s = input("Start node: ")
+q = deque([s])
+v, cost, path = {s}, {s:0}, {s:[s]}
+
+while q:
+    n = q.popleft()
+    for nei in g[n]:
+        if nei not in v:
+            v.add(nei)
+            q.append(nei)
+            cost[nei] = cost[n]+1
+            path[nei] = path[n]+[nei]
+
+total = sum(cost.values())
+for k in path:
+    print(f"{k}: cost={cost[k]}, path={'->'.join(path[k])}")
+print("Total Cost:", total)
+
+output:
+No. of nodes: 4
+Node: A
+Neighbors of A: B C
+Node: B
+Neighbors of B: D
+Node: C
+Neighbors of C: 
+Node: D
+Neighbors of D: 
+Start node: A
+A: cost=0, path=A
+B: cost=1, path=A->B
+C: cost=1, path=A->C
+D: cost=2, path=A->B->D
+Total Cost: 4
