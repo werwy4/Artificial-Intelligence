@@ -1,0 +1,35 @@
+grid = []
+print("Enter state of each cell (Clean/Dirty):")
+for i in range(2):
+    row = []
+    for j in range(2):
+        cell = input(f"Cell ({i},{j}): ").strip().capitalize()
+        row.append(cell)
+    grid.append(row)
+for i in range(2):
+    for j in range(2):
+        if grid[i][j] == 'Dirty':
+            print(f"Cleaning cell ({i},{j})")
+            grid[i][j] = 'Clean'
+        else:
+            print(f"Cell ({i},{j}) already clean.")
+
+print("\nFinal Grid State:")
+for row in grid:
+    print(row)
+
+output:
+Enter state of each cell (Clean/Dirty):
+Cell (0,0): dirty
+Cell (0,1): clean
+Cell (1,0): dirty
+Cell (1,1): dirty
+Cleaning cell (0,0)
+Cell (0,1) already clean.
+Cleaning cell (1,0)
+Cleaning cell (1,1)
+
+Final Grid State:
+['Clean', 'Clean']
+  ['Clean', 'Clean']  
+  
