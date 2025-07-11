@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internship Self-Intro Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f0f8ff;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 30px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Internship Self-Intro Generator</h2>
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    <button onclick="generateIntro()">Generate</button>
+
+    <div id="output"></div>
+
+    <script>
+        function generateIntro() {
+            const name = document.getElementById("nameInput").value.trim();
+            if (name === "") {
+                document.getElementById("output").innerHTML = "<p>Please enter your name.</p>";
+                return;
+            }
+
+            const intro = `
+                <h3>Hello, my name is ${name}.</h3>
+                <p>I’m a third-year B.Tech student majoring in Artificial Intelligence and Data Science. I have a strong interest in Machine Learning and have worked on several projects using algorithms like Decision Trees, Support Vector Machines, and K-Nearest Neighbors. I’ve applied these to solve real-world problems such as fraud detection and medical prediction. I enjoy exploring data, building models, and improving their performance through evaluation metrics like accuracy, precision, and recall. I'm now looking to gain hands-on experience through an internship where I can learn and contribute to real ML projects.</p>
+                <h4>✅ One-Line Summary:</h4>
+                <p>Third-year AI & Data Science student with hands-on experience in Machine Learning algorithms, seeking internship opportunities to apply and expand my skills.</p>
+                <h4>🎯 My Hobbies:</h4>
+                <ul>
+                    <li>Reading</li>
+                    <li>Listening to Music</li>
+                </ul>
+            `;
+            document.getElementById("output").innerHTML = intro;
+        }
+    </script>
+
+</body>
+</html>
+
+output:
+Hello, my name is swathika.
+I’m a third-year B.Tech student majoring in Artificial Intelligence and Data Science. I have a strong interest in Machine Learning and have worked on several projects using algorithms like Decision Trees, Support Vector Machines, and K-Nearest Neighbors. I’ve applied these to solve real-world problems such as fraud detection and medical prediction. I enjoy exploring data, building models, and improving their performance through evaluation metrics like accuracy, precision, and recall. I'm now looking to gain hands-on experience through an internship where I can learn and contribute to real ML projects.
+
+✅ One-Line Summary:
+Third-year AI & Data Science student with hands-on experience in Machine Learning algorithms, seeking internship opportunities to apply and expand my skills.
+
+🎯 My Hobbies:
+Reading
+Listening to Music
